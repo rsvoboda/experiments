@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>JavaScript magic</title>
+</head>
+<body>
+<h3 id="title">Processing ...</h3>
+<div id="content"></div>
+
+<script>
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', "http://date.jsontest.com/", true);
+xhr.send();
+xhr.onreadystatechange = processRequest;
+ 
+function processRequest(e) {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+		var response = JSON.parse(xhr.responseText);
+		document.getElementById("title").innerHTML = response.time + " - " + response.date;
+		
+		var div = document.getElementById("content");
+		for (key in response) {
+		   div.innerHTML = div.innerHTML + key + " - " + response[key];
+		  
+		   var echoXhr = new XMLHttpRequest();
+		   echoXhr.open('GET', "http://echo.jsontest.com/" + key + "/" + response[key], false);
+		   echoXhr.send();
+		   div.innerHTML = div.innerHTML + " ... " + echoXhr.responseText + "<br />";
+		}
+    }
+}
+
+</script>
+
+</body>
+</html>
