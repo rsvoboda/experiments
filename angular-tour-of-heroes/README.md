@@ -14,11 +14,11 @@ Please keep that in mind before posting issues and PRs.
 
 ## Prerequisites
 
-Node.js and npm are essential to Angular development. 
-    
+Node.js and npm are essential to Angular development. Instead of npm you can use yarn.
+
 <a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank" title="Installing Node.js and updating npm">
 Get it now</a> if it's not already installed on your machine.
- 
+
 **Verify that you are running at least node `v4.x.x` and npm `3.x.x`**
 by running `node -v` and `npm -v` in a terminal/console window.
 Older versions produce errors.
@@ -69,7 +69,15 @@ npm install
 npm start
 ```
 
-The `npm start` command first compiles the application, 
+Or using [Yarn](https://yarnpkg.com/):
+```bash
+yarn install
+yarn start
+```
+For the following examples just substitute npm with yarn.
+
+
+The `npm start` command first compiles the application,
 then simultaneously re-compiles and runs the `lite-server`.
 Both the compiler and the server watch for file changes.
 
